@@ -6,8 +6,8 @@
  * @return {Number}
  * 
  */
-//boogie = currentIndex
-//photon = accumulated
+//monkey = currentIndex
+//boosted = accumulated
 var stringCount = function(str) {
   return str.length;
 }
@@ -31,8 +31,8 @@ var arrayLength = function(arr) {
  * @return {Number}
  */
 var countAll = function(arr) {
-  return arr.reduce( (photon,boogie) => {
-    return photon + boogie; 
+  return arr.reduce( (boosted, monkey) => {
+    return boosted + monkey; 
   });
 }
 
@@ -57,8 +57,8 @@ var countStrings = function(arr) {
  * @return {Number}
  */
 var countAllStrings = function(arr) {
-  return arr.reduce( (photon,boogie) => {
-    return photon + boogie.length //adds the current index length to accumulated
+  return arr.reduce( (boosted, monkey) => {
+    return boosted + monkey.length //adds the current index length to accumulated
   },0); 
 };
 
@@ -92,12 +92,12 @@ var lengthOfLast = function(arr) {
  * @return {Number}
  */
 var sumBelowTen = function(arr) {
-  return arr.reduce( (photon, boogie) => {
-    //return boogie < 10? photon + boogie : photon
-    if(boogie < 10) {
-      return photon + boogie //if currentIndex < 10 : add to accumulated | else : accumulated = accumulated
+  return arr.reduce( (boosted, monkey) => {
+    //return monkey < 10? boosted + monkey : boosted
+    if(monkey < 10) {
+      return boosted + monkey //if currentIndex < 10 : add to accumulated | else : accumulated = accumulated
     } else {
-      return photon
+      return boosted
     }
   },0)
 };
@@ -110,11 +110,11 @@ var sumBelowTen = function(arr) {
  * @return {Number}
  */
 var moreThanTenLetters = function(arr) {
-  return arr.reduce( (photon, boogie) => {
-    if(boogie.length > 10) {
-      return photon += 1; //if currentIndex.length > 10 : add to accumulated | else : accumulated = accumulated
+  return arr.reduce( (boosted, monkey) => {
+    if(monkey.length > 10) {
+      return boosted += 1; //if currentIndex.length > 10 : add to accumulated | else : accumulated = accumulated
     } else {
-      return photon
+      return boosted
     }
   },0)
 };
@@ -127,8 +127,8 @@ var moreThanTenLetters = function(arr) {
  * @return {Number}
  */
 var multiplyAll = function(arr) {
-  return arr.reduce( (photon,boogie) => {
-    return photon * boogie
+  return arr.reduce( (boosted, monkey) => {
+    return boosted * monkey
   },1) // 1 otherwise NaN or 0
 };
 
@@ -140,11 +140,11 @@ var multiplyAll = function(arr) {
  * @return {Number}
  */
 var sumAllPositive = function(arr) {
-  return arr.reduce( (photon,boogie) => {
-    if(boogie >= 0) {
-      return photon + boogie; //if currentIndex is positive : add to accumulated | else : accumulated = accumulated
+  return arr.reduce( (boosted, monkey) => {
+    if(monkey >= 0) {
+      return boosted + monkey; //if currentIndex is positive : add to accumulated | else : accumulated = accumulated
     } else {
-      return photon;
+      return boosted;
     }
   }, 0)
 };
@@ -157,11 +157,11 @@ var sumAllPositive = function(arr) {
  * @return {Number}
  */
 var stringCountBelowThree = arr => {
-  return arr.reduce( (photon,boogie) => {
-    if(boogie.length <= 3) {
-      return photon += 1; //if currentIndex <= 3 : add to accumulated | else : accumulated = accumulated
+  return arr.reduce( (boosted, monkey) => {
+    if(monkey.length <= 3) {
+      return boosted += 1; //if currentIndex <= 3 : add to accumulated | else : accumulated = accumulated
     } else {
-      return photon;
+      return boosted;
     }
   },0)
 };
