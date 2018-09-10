@@ -45,7 +45,7 @@ var countAll = function(arr) {
  */
 var countStrings = function(arr) {
   return arr.map(index => {
-    return index.length
+    return index.length;
   }); //maps the length of every element
 };
 
@@ -58,7 +58,7 @@ var countStrings = function(arr) {
  */
 var countAllStrings = function(arr) {
   return arr.reduce( (boosted, monkey) => {
-    return boosted + monkey.length //adds the current index length to accumulated
+    return boosted + monkey.length; //adds the current index length to accumulated
   },0); 
 };
 
@@ -81,7 +81,7 @@ var splitString = function(str) {
  * @return {Number}
  */
 var lengthOfLast = function(arr) {
-  return arr[arr.length-1].length //gets the length of the array-1 then gets the length of the element
+  return arr[arr.length-1].length; //gets the length of the array-1 then gets the length of the element
 };
 
 /* #sumBelowTen
@@ -95,9 +95,9 @@ var sumBelowTen = function(arr) {
   return arr.reduce( (boosted, monkey) => {
     //return monkey < 10? boosted + monkey : boosted
     if(monkey < 10) {
-      return boosted + monkey //if currentIndex < 10 : add to accumulated | else : accumulated = accumulated
+      return boosted + monkey; //if currentIndex < 10 : add to accumulated | else : accumulated = accumulated
     } else {
-      return boosted
+      return boosted;
     }
   },0)
 };
@@ -114,7 +114,7 @@ var moreThanTenLetters = function(arr) {
     if(monkey.length > 10) {
       return boosted += 1; //if currentIndex.length > 10 : add to accumulated | else : accumulated = accumulated
     } else {
-      return boosted
+      return boosted;
     }
   },0)
 };
@@ -128,7 +128,7 @@ var moreThanTenLetters = function(arr) {
  */
 var multiplyAll = function(arr) {
   return arr.reduce( (boosted, monkey) => {
-    return boosted * monkey
+    return boosted * monkey;
   },1) // 1 otherwise NaN or 0
 };
 
@@ -175,7 +175,7 @@ var stringCountBelowThree = arr => {
  */
 var doubleArray = function(arr) {
   return arr.map(index => {
-    return index * 2
+    return index * 2;
   })
 };
 
@@ -188,7 +188,7 @@ var doubleArray = function(arr) {
  */
 
 var countObjects = function(arr) {
-  return arr.length
+  return arr.length;
 };
 
 module.exports = {
