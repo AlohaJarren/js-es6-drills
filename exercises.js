@@ -6,7 +6,11 @@
  * @return {Number}
  * 
  */
-var stringCount;
+//boogie = currentIndex
+//photon = accumulated
+var stringCount = function(str) {
+  return str.length;
+}
 
 /* #arrayLength
  *
@@ -15,7 +19,9 @@ var stringCount;
  * @param {Array}
  * @return {Number}
  */
-var arrayLength;
+var arrayLength = function(arr) {
+  return arr.length;
+}
 
 /* #countAll
  *
@@ -24,7 +30,11 @@ var arrayLength;
  * @param {Array}
  * @return {Number}
  */
-var countAll;
+var countAll = function(arr) {
+  return arr.reduce( (photon,boogie) => {
+    return photon + boogie; 
+  });
+}
 
 /* #countStrings
  *
@@ -33,7 +43,11 @@ var countAll;
  * @param {Array}
  * @return {Array}
  */
-var countStrings;
+var countStrings = function(arr) {
+  return arr.map(index => {
+    return index.length
+  }); //maps the length of every element
+};
 
 /* #countAllStrings
  *
@@ -42,7 +56,11 @@ var countStrings;
  * @param {String}
  * @return {Number}
  */
-var countAllStrings;
+var countAllStrings = function(arr) {
+  return arr.reduce( (photon,boogie) => {
+    return photon + boogie.length //adds the current index length to accumulated
+  },0); 
+};
 
 /* #splitString
  *
@@ -51,7 +69,9 @@ var countAllStrings;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+var splitString = function(str) {
+  return str.split(''); //splits the string into an array
+};
 
 /* #lengthOfLast
  *
@@ -60,7 +80,9 @@ var splitString;
  * @param {String}
  * @return {Number}
  */
-var lengthOfLast;
+var lengthOfLast = function(arr) {
+  return arr[arr.length-1].length //gets the length of the array-1 then gets the length of the element
+};
 
 /* #sumBelowTen
  *
@@ -69,7 +91,16 @@ var lengthOfLast;
  * @param {Array}
  * @return {Number}
  */
-var sumBelowTen;
+var sumBelowTen = function(arr) {
+  return arr.reduce( (photon, boogie) => {
+    //return boogie < 10? photon + boogie : photon
+    if(boogie < 10) {
+      return photon + boogie //if currentIndex < 10 : add to accumulated | else : accumulated = accumulated
+    } else {
+      return photon
+    }
+  },0)
+};
 
 /* #moreThanTenLetters
  *
@@ -78,7 +109,15 @@ var sumBelowTen;
  * @param {String}
  * @return {Number}
  */
-var moreThanTenLetters;
+var moreThanTenLetters = function(arr) {
+  return arr.reduce( (photon, boogie) => {
+    if(boogie.length > 10) {
+      return photon += 1; //if currentIndex.length > 10 : add to accumulated | else : accumulated = accumulated
+    } else {
+      return photon
+    }
+  },0)
+};
 
 /* #multiplyAll
  *
@@ -87,7 +126,11 @@ var moreThanTenLetters;
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
+var multiplyAll = function(arr) {
+  return arr.reduce( (photon,boogie) => {
+    return photon * boogie
+  },1) // 1 otherwise NaN or 0
+};
 
 /* #sumAllPositive
  *
@@ -96,7 +139,15 @@ var multiplyAll;
  * @param {String}
  * @return {Number}
  */
-var sumAllPositive;
+var sumAllPositive = function(arr) {
+  return arr.reduce( (photon,boogie) => {
+    if(boogie >= 0) {
+      return photon + boogie; //if currentIndex is positive : add to accumulated | else : accumulated = accumulated
+    } else {
+      return photon;
+    }
+  }, 0)
+};
 
 /* #stringCountBelowThree
  *
@@ -105,7 +156,15 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+var stringCountBelowThree = arr => {
+  return arr.reduce( (photon,boogie) => {
+    if(boogie.length <= 3) {
+      return photon += 1; //if currentIndex <= 3 : add to accumulated | else : accumulated = accumulated
+    } else {
+      return photon;
+    }
+  },0)
+};
 
 /* #doubleArray
  *
@@ -114,7 +173,11 @@ var stringCountBelowThree;
  * @param {Array} // [1,2,3]
  * @return {Array} // [2,4,6]
  */
-var doubleArray;
+var doubleArray = function(arr) {
+  return arr.map(index => {
+    return index * 2
+  })
+};
 
 /* #countObjects
  *
@@ -124,19 +187,23 @@ var doubleArray;
  * @return {Number}
  */
 
+var countObjects = function(arr) {
+  return arr.length
+};
+
 module.exports = {
-  stringCount: null,
-  arrayLength: null,
-  countAll: null,
-  countStrings: null,
-  countAllStrings: null,
-  splitString: null,
-  lengthOfLast: null,
-  sumBelowTen: null,
-  moreThanTenLetters: null,
-  multiplyAll: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
-  doubleArray: null,
-  countObjects: null
+  stringCount: stringCount,
+  arrayLength: arrayLength,
+  countAll: countAll,
+  countStrings: countStrings,
+  countAllStrings: countAllStrings,
+  splitString: splitString,
+  lengthOfLast: lengthOfLast,
+  sumBelowTen: sumBelowTen,
+  moreThanTenLetters: moreThanTenLetters,
+  multiplyAll: multiplyAll,
+  sumAllPositive: sumAllPositive,
+  stringCountBelowThree: stringCountBelowThree,
+  doubleArray: doubleArray,
+  countObjects: countObjects
 };
